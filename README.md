@@ -10,4 +10,4 @@ This can be used to convert a set of MERRA2 restarts via a script like this, the
 ./bin2nc.py -i saltwater_internal_rst -o saltwater_internal_rst.nc4 -d salt.yaml
 ./bin2nc.py -i catch_internal_rst -o catch_internal_rst.nc4 -d catch.yaml
 ```
-Note your python must have YAML, so this probably means the system python won't cut. On discover this means using the python module used by GEOS-5 for example.
+Note your python must have YAML, numpy, scipy, so this probably means the system python won't cut. On Discover this means using the python module used by GEOS-5 for example.
