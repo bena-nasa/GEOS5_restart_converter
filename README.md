@@ -1,6 +1,6 @@
 # GEOS5_restart_converter
 Converts GEOS-5 binary to NetCDF restarts
-This can be used to convert a set of MERRA2 restarts via a script like this, the utility must be run for each different restart, the C180 respository current contains files that can be used or MERRA2:
+This can be used to convert a set of MERRA2 restarts via a script like this, the utility must be run for each different restart, the C180 respository current contains files that can be used for MERRA2:
 ```
 ./bin2nc.py -i fvcore_internal_rst -o fvcore_internal_rst.nc4 -d fv.yaml -p double -t True
 ./bin2nc.py -i moist_internal_rst -o moist_internal_rst.nc4 -d moist.yaml
