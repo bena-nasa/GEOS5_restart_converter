@@ -11,3 +11,5 @@ This can be used to convert a set of MERRA2 restarts via a script like this, the
 ./bin2nc.py -i catch_internal_rst -o catch_internal_rst.nc4 -d catch.yaml
 ```
 Note your python must have YAML, numpy, scipy, so this probably means the system python won't cut. On Discover this means using the python module used by GEOS-5 for example.
+
+Also if you want some debugging prints, add "--debug" to the command line options
