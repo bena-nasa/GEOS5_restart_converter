@@ -13,6 +13,7 @@ def parse_args():
    p.add_argument('-d','--dscr',type=str,help='descriptor file',default=None)
    p.add_argument('-t','--hdr',type=bool,help='file has header',default=False)
    p.add_argument('-p','--prec',type=str,help='float or double',default='float')
+   p.add_argument('--debug',action='store_true',help='turn on debug prints')
    return vars(p.parse_args())
 
 def writeCVars(coordVars,dimensions):
@@ -116,6 +117,7 @@ binfile = comm_args['input']
 ncfile = comm_args['output']
 sdtype = comm_args['prec']
 hdr = comm_args['hdr']
+debug = comm_args['debug']
 
 if (sdtype=='float'):
    bintype=np.float32
@@ -130,8 +132,9 @@ data=safe_load(f)
 dimensions = data["dimensions"]
 variables = data["variables"]
 
-print dump(variables)
-print dump(dimensions)
+if debug:
+   print(dump(variables))
+   print(dump(dimensions))
 
 
 
@@ -160,11 +163,14 @@ writeCVars(cVars,dimensions)
 
 f=FortranFile(binfile,'r')
 if hdr:
-   print "reading header"
+   if debug:
+      print("reading header")
    rec = f.read_ints(dtype=np.int32)
-   print rec
+   if debug:
+      print(rec)
    rec = f.read_ints(dtype=np.int32)  
-   print rec
+   if debug:
+      print(rec)
 
 for v in variables:
    writeVar(v,vars,dimensions,bintype)
